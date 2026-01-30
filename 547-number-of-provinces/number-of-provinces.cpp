@@ -11,7 +11,6 @@ public:
     int findCircleNum(vector<vector<int>>& isConnected) {
         int V=isConnected.size();
         vector<vector<int>> adjls(V);   
-        vector<int> visited(V, 0);
 
         for(int i=0;i<V;i++){
             for(int j=0;j<V;j++){
@@ -21,7 +20,7 @@ public:
                 }
             }
         }
-        
+        vector<int> visited(V, 0);
         int cnt=0;
         for(int i=0;i<V;i++){
             if(!visited[i]){
