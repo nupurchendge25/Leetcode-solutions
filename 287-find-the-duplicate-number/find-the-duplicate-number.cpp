@@ -1,14 +1,16 @@
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
+        unordered_map<int,int> freq;
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            freq[nums[i]]++;
+        }
 
-        int j=0;
-        while(j<nums.size()-1){
-            if(nums[j]==nums[j+1]){
-                return nums[j];
+        for(auto it:freq){
+            if(it.second>1){
+                return it.first;
             }
-            j++;
         }
         return -1;
     }
